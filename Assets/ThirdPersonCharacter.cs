@@ -10,11 +10,13 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 velocity;
-    private float gravity = -9.81f;
+   // private float gravity = -9.81f;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+     
+
     }
 
     void Update()
@@ -46,7 +48,7 @@ public class ThirdPersonMovement : MonoBehaviour
         // Apply gravity
         if (!controller.isGrounded)
         {
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += 0f * Time.deltaTime;
         }
         else
         {
