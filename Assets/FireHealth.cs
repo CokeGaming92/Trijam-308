@@ -7,6 +7,7 @@ public class FireHealth : MonoBehaviour
     public Transform objectToScale; // Object to scale
     public float minScalePercent = 0.1f; // Minimum scale percentage
     public Light fireLight; // Point light to dim
+    public Light fireLight2; // 2nd Point light to dim
     public AudioSource fireAudio; // Audio source to scale volume
 
     private Vector3 initialScale;
@@ -55,7 +56,12 @@ public class FireHealth : MonoBehaviour
 
         if (fireLight != null)
         {
-            fireLight.intensity = Mathf.Lerp(0f, 1f, healthPercent);
+            fireLight.intensity = Mathf.Lerp(0.05f, 1f, healthPercent);
+        }
+
+        if (fireLight2 != null)
+        {
+            fireLight2.intensity = Mathf.Lerp(0.05f, 1f, healthPercent);
         }
 
         if (fireAudio != null)
