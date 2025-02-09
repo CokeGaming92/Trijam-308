@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour
 
     void OnPlayClick()
     {
+        PlaySound(playClip);
         Debug.Log("Play button clicked.");
         StartCoroutine(FadeOutMusicAndStartSequence());
     }
