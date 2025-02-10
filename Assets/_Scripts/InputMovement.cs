@@ -5,6 +5,7 @@ public class InputMovement : MonoBehaviour
     public float speed = 5f; // Public speed variable
     private Rigidbody rb;
     public Animator animator;
+    public Transform playerFacing;
 
     void Start()
     {
@@ -32,5 +33,10 @@ public class InputMovement : MonoBehaviour
         // Apply movement with speed and deltaTime in FixedUpdate
         Vector3 moveDirection = new Vector3(moveX, 0f, moveZ).normalized * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + moveDirection);
+
+        if (moveDirection != Vector3.zero)
+        {
+            playerFacing.rotation = Quaternion.LookRotation(moveDirection);
+        }
     }
 }

@@ -10,6 +10,7 @@ public class FireHealth : MonoBehaviour
     public Light fireLight; // Point light to dim
     public Light fireLight2; // 2nd Point light to dim
     public AudioSource fireAudio; // Audio source to scale volume
+    public ParticleSystem redPuff;
 
     private Vector3 initialScale;
     private float initialVolume;
@@ -33,6 +34,7 @@ public class FireHealth : MonoBehaviour
 
     void Update()
     {
+
         playerHealth.value -= burnRate * Time.deltaTime;
         playerHealth.value = Mathf.Max(playerHealth.value, 0f); // Prevent health from going below 0
 
@@ -42,6 +44,9 @@ public class FireHealth : MonoBehaviour
     public void ResetHealth()
     {
         playerHealth.value = startingHealth;
+
+        redPuff.Play();
+
         UpdateVisuals();
     }
 
@@ -57,7 +62,7 @@ public class FireHealth : MonoBehaviour
             objectToScale.localScale = new Vector3(
                 initialScale.x * scaleMultiplier,
                 initialScale.y * scaleMultiplier,
-                initialScale.z
+                initialScale.z * scaleMultiplier
             );
         }
 

@@ -53,14 +53,14 @@ public class GameManager : MonoBehaviour
 
     private void OnWin()
     {
-        StartCoroutine(FadeCanvasGroup(winPanel, 0f, 1f, 5f));
+        StartCoroutine(FadeCanvasGroup(winPanel, 0f, 1f, 1f));
         winMusic.Play();
         ambientMusic.Stop();
     }
 
     private void OnLose()
     {
-        StartCoroutine(FadeCanvasGroup(gameoverPanel, 0f, 1f, 5f));
+        StartCoroutine(FadeCanvasGroup(gameoverPanel, 0f, 1f, 6f));
         loseMusic.Play();
         ambientMusic.Stop();
     }
